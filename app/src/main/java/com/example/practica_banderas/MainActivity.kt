@@ -7,11 +7,14 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
@@ -30,7 +33,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Practica_BanderasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(modifier = Modifier
+                    BanderaAlemania(modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize())
                 }
@@ -40,17 +43,32 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun BanderaAlemania(modifier: Modifier = Modifier) {
+
+    Column(modifier = Modifier.fillMaxSize()) {
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxWidth()
+            .background(Color.Black)
+        )
+
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxWidth()
+            .background(Color(0xFFDD0000))
+        )
+
+        Box(modifier = Modifier
+            .weight(1f)
+            .fillMaxWidth()
+            .background(Color(0xFFFFCE00)))
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun BanderaAlemaniaPreview() {
     Practica_BanderasTheme {
-        Greeting("Android")
+        BanderaAlemania()
     }
 }
