@@ -1,5 +1,6 @@
 package com.example.practica_banderas
 
+import android.R
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -30,7 +31,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Practica_BanderasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(modifier = Modifier
+                    BanderaFrancia(modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize())
                 }
@@ -40,17 +41,20 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun BanderaFrancia(modifier: Modifier = Modifier) {
+    Row(modifier = modifier) {
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(color = Color(0xFF0055A4)))
+
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(color = Color.White))
+
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(color = Color(0xFFEF4135)))
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun BanderaFranciaPreview() {
     Practica_BanderasTheme {
-        Greeting("Android")
+        BanderaFrancia()
     }
 }
