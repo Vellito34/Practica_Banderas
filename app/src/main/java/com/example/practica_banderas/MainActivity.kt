@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
@@ -30,9 +31,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             Practica_BanderasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(modifier = Modifier
-                        .padding(innerPadding)
-                        .fillMaxSize())
+                    BanderaItalia(modifier = Modifier.padding(innerPadding))
                 }
             }
         }
@@ -40,17 +39,18 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
+fun BanderaItalia(modifier: Modifier = Modifier) {
+    Row(modifier = modifier.fillMaxSize())  {
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(Color.Green))
+
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(Color.White))
+
+        Box(modifier = Modifier.weight(1f).fillMaxHeight().background(Color.Red))
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
-    Practica_BanderasTheme {
-        Greeting("Android")
-    }
+fun BanderaItaliaPreview() {
+    BanderaItalia()
 }
