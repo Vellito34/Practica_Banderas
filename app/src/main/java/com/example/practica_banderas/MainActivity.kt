@@ -7,13 +7,12 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.Row
-import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -30,9 +29,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             Practica_BanderasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(modifier = Modifier
-                        .padding(innerPadding)
-                        .fillMaxSize())
+                    BanderaEspana(
+                        modifier = Modifier
+                            .padding(innerPadding)
+                            .fillMaxSize()
+                    )
                 }
             }
         }
@@ -40,17 +41,53 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
+fun BanderaEspana(modifier: Modifier = Modifier) {
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+    ) {
+        Box(
+            modifier = Modifier
+                .weight(1f)
+        ) {
+            redFlag(modifier = Modifier.fillMaxSize())
+        }
+        Box(
+            modifier = Modifier
+                .weight(2f)
+                .fillMaxWidth()
+                .background(Color(0xFFF1BF00)),
+            Alignment.TopStart
+        ) {
+            Image(
+                painter = painterResource(id = R.drawable.spain),
+                contentDescription = "Bandera Española",
+                modifier = Modifier
+                    .size(200.dp)
+            )
+        }
+        Box(
+            modifier = Modifier
+                .weight(1f)
+        ) {
+            redFlag(modifier = Modifier.fillMaxSize())
+        }
+    }
+}
+
+@Composable
+fun redFlag(modifier: Modifier = Modifier) {
+    Box(
         modifier = modifier
+            .fillMaxWidth()
+            .background(Color.Red)
     )
 }
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun BanderaEspanaPreview() {
     Practica_BanderasTheme {
-        Greeting("Android")
+
     }
 }
