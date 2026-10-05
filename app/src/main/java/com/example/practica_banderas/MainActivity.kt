@@ -21,6 +21,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.practica_banderas.Screen.BanderaPapua
 import com.example.practica_banderas.ui.theme.Practica_BanderasTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,27 +31,11 @@ class MainActivity : ComponentActivity() {
         setContent {
             Practica_BanderasTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting(modifier = Modifier
+                    BanderaPapua(modifier = Modifier
                         .padding(innerPadding)
                         .fillMaxSize())
                 }
             }
         }
-    }
-}
-
-@Composable
-fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hello $name!",
-        modifier = modifier
-    )
-}
-
-@Preview(showBackground = true)
-@Composable
-fun GreetingPreview() {
-    Practica_BanderasTheme {
-        Greeting("Android")
     }
 }
